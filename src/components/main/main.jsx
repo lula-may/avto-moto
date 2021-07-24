@@ -4,6 +4,7 @@ import './style.scss';
 import Footer from '../footer/footer';
 import Header from '../header/header';
 import Info from '../info/info';
+import Popup from '../popup/popup';
 import Slider from '../slider/slider';
 import Tabs from '../tabs/tabs';
 
@@ -25,6 +26,7 @@ export default function Main() {
         </div>
       </main>
       <Footer />
+      <Popup />
     </Fragment>
   );
 }

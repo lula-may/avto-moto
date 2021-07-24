@@ -15,6 +15,7 @@ img {
 }
 
 body {
+  position: relative;
   margin: 0;
   font-family: "Open Sans", "Arial", sans-serif;
   font-size: $fnt-size-basic;
@@ -53,6 +54,7 @@ body {
   &--bright {
     color: $bg-basic;
     background-color: $bg-button;
+    border: none;
     &:hover {
       background-color: $bg-button-hover;
     }

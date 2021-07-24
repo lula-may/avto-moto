@@ -1,0 +1,115 @@
+.review-form {
+  position: fixed;
+  top: calc(50% - 207px);
+  left: calc(50% - 349px);
+  width: 698px;
+  height: 415px;
+  padding: 35px;
+
+  font-size: $fnt-size-btn;
+  line-height: normal;
+  background-color: $bg-header;
+
+  form {
+    text-align: center;
+  }
+}
+
+.review-form__header {
+  margin: 0;
+  margin-bottom: 45px;
+  font-size: $fnt-size-form;
+  font-weight: 600;
+  color: rgba($fnt-clr-basic, 0.2);
+  text-align: center;
+}
+
+.review-form__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  width: 16px;
+  height: 16px;
+
+  font-size: 0;
+
+  background-color: transparent;
+  background-image: url('./img/cross.svg');
+  background-size: 100%;
+  border: none;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.review-form__container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 19px;
+}
+
+.review-form__column {
+  width: 300px;
+}
+
+.review-form__message {
+  display: none;
+  position: absolute;
+  top: -25px;
+  left: 0;
+  color: $error-clr;
+}
+
+.review-form__field {
+  position: relative;
+  margin: 0;
+  margin-bottom: 16px;
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 15px 25px;
+
+    font: inherit;
+    border: 1px solid $border-input;
+  }
+
+  input:required,
+  textarea:required {
+    background-image: url('./img/star.png');
+    background-repeat: no-repeat;
+    background-position: 12px 9px;
+  }
+
+  input:invalid {
+    border: 1px solid $error-clr;
+  }
+  input:invalid ~ .review-form__message {
+    display: block;
+  }
+
+  input {
+    height: 50px;
+  }
+
+  textarea {
+    height: 118px;
+    resize: none;
+  }
+}
+
+.review-form__rating {
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  margin-bottom: 16px;
+}
+
+.review-form__label {
+  margin-right: 14px;
+
+  font-size: $fnt-size-text;
+  font-weight: 600;
+  color: $fnt-clr-plain;
+}

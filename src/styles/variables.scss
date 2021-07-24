@@ -1,26 +1,31 @@
 // COLORS
+$fnt-clr-basic: #48494d;
+$fnt-clr-plain: #000000;
+$fnt-clr-contacts: #1a212f;
+$fnt-clr-lighter: rgba($fnt-clr-basic, 0.5);
+
 $bg-basic: #ffffff;
 $bg-header: #f5f5f9;
 $bg-button: #d12136;
 $bg-button-hover: #bd0c21;
+$bg-overlay: rgba(#000000, 0.5);
+$bg-star: rgba(#bdbec2, 0.7);
 
 $border-clr: #d7d9df;
+$error-clr: #ff0000;
 $line-clr: #a3a4a6;
 $border-review: rgba(#000000, 0.2);
-
-$fnt-clr-basic: #48494d;
-$fnt-clr-plain: #000000;
-$fnt-clr-contacts: #1a212f;
-
-$fnt-clr-lighter: rgba($fnt-clr-basic, 0.5);
+$border-input: rgba($fnt-clr-basic, 0.2);
 
 // TYPOGRAPHY
+$fnt-size-btn: 14px;
+$fnt-size-text: 15px;
 $fnt-size-basic: 16px;
 $fnt-size-tab: 20px;
-$fnt-size-text: 15px;
-$fnt-size-btn: 14px;
+$fnt-size-form: 25px;
 $fnt-size-header: 30px;
 $fnt-size-large: 35px;
+
 
 // LAYOUT SIZES
 $max-width: 1200px;
