@@ -1,0 +1,19 @@
+.properties {
+  @include list-reset();
+
+  display: flex;
+  flex-direction: column;
+  width: 565px;
+}
+
+.properties__item {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid $border-clr;
+
+  dd {
+    color: $fnt-clr-plain;
+  }
+}

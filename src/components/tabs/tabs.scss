@@ -1,0 +1,29 @@
+.tabs {
+  margin-bottom: 140px;
+}
+.tabs__nav {
+  display: flex;
+}
+.tabs__button {
+  width: 195px;
+  padding-top: 11px;
+  padding-bottom: 14px;
+
+  color: $fnt-clr-basic;
+  text-align: center;
+  font-size: $fnt-size-tab;
+  line-height: normal;
+
+  border: 1px solid $border-clr;
+  background-color: transparent;
+
+  &--active {
+    color: $bg-basic;
+    background-color: $bg-button;
+    border-color: $bg-button;
+  }
+}
+
+.tabs__content {
+  padding-top: 30px;
+}
