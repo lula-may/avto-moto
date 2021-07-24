@@ -1,0 +1,71 @@
+.page {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", "Arial", sans-serif;
+  font-size: $fnt-size-basic;
+  color: #48494D;
+  background-color: $bg-basic;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+
+  white-space: nowrap;
+
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.button {
+  display: inline-block;
+  padding: 16px 20px 17px;
+  margin-bottom: 16px;
+
+  font-size: $fnt-size-btn;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+
+  &--bright {
+    color: $bg-basic;
+    background-color: $bg-button;
+    &:hover {
+      background-color: $bg-button-hover;
+    }
+  }
+
+  &--light {
+    color: $bg-button;
+    background-color: transparent;
+    border: 1px solid $bg-button;
+
+    &:hover {
+      color: $bg-basic;
+      background-color: $bg-button;
+    }
+  }
+}

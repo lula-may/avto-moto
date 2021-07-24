@@ -1,25 +1,3 @@
 @import './variables.scss';
 @import './fonts.scss';
-
-.page {
-  box-sizing: border-box;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-body {
-  font-family: "Open Sans", "Arial", sans-serif;
-  font-size: $fnt-size-basic;
-  color: #48494D;
-  background-color: $bg-basic;
-}
+@import './global.scss';
