@@ -1,0 +1,98 @@
+.review {
+  font-size: $fnt-size-text;
+  color: $fnt-clr-plain;
+  line-height: normal;
+
+  border-bottom: 1px solid $border-review;
+
+  h3 {
+    margin: 0;
+    margin-bottom: 12px;
+
+    font-size: $fnt-size-tab;
+    font-weight: 600;
+    color: $fnt-clr-basic;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  h4 {
+    margin: 0;
+    margin-bottom: 3px;
+    font-weight: 600;
+  }
+}
+
+.review_shorts {
+  @include list-reset();
+  margin-bottom: 15px;
+}
+
+.review__item {
+  padding-left: 20px;
+  margin-bottom: 13px;
+
+  h4 {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -21px;
+      right: 0;
+      width: 9px;
+      height: 21px;
+
+      background-repeat: no-repeat;
+      background-size: 9px 21px;
+    }
+  }
+
+  &--minus {
+    h4::before {
+      background-image: url('./img/minus.svg');
+    }
+  }
+
+  &--plus {
+    h4::before {
+      background-image: url('./img/plus.svg');
+    }
+  }
+}
+.review__rating {
+  display: flex;
+  padding-top: 20px;
+  margin-bottom: 25px;
+}
+
+.review__stars {
+  margin-right: 20px;
+}
+
+.review__label {
+  color: $bg-button;
+}
+
+.review__footer {
+  display: flex;
+  padding-bottom: 20px;
+}
+
+.review__time {
+  margin-right: 25px;
+
+  color: rgba($fnt-clr-plain, 0.4);
+}
+
+.review__answer {
+  color: $bg-button;
+  text-decoration: none;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+

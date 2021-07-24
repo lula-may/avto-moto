@@ -1,0 +1,13 @@
+.reviews {
+  position: relative;
+}
+
+.reviews__list {
+  @include list-reset();
+}
+
+.reviews__button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
