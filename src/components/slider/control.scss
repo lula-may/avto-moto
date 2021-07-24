@@ -1,0 +1,27 @@
+button.control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 52px;
+  height: 52px;
+
+  font-size: 0;
+  color: $fnt-clr-basic;
+  border-radius: 50%;
+  background-color: transparent;
+  border:1px solid $border-clr;
+
+  &:disabled {
+    color: $border-clr;
+  }
+
+  &:hover {
+    color: $border-clr;
+  }
+}
+
+.control__icon {
+  width: 20px;
+  height: 20px;
+}
