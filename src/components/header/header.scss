@@ -1,0 +1,21 @@
+.header {
+  padding: 15px 0;
+  margin-bottom: 75px;
+
+  font-size: $fnt-size-basic;
+  line-height: normal;
+  font-weight: 600;
+  color: $fnt-clr-basic;
+  background-color: $bg-header;
+}
+
+.header__wrapper {
+  @include container();
+
+  display: flex;
+}
+
+.header__logo {
+  padding-left: 7px;
+  margin-right: auto;
+}
