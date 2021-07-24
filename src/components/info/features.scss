@@ -1,0 +1,36 @@
+.features {
+  @include list-reset();
+
+  display: flex;
+  margin-left: 3px;
+  margin-bottom: 35px;
+}
+
+.features__item {
+  padding-top: 40px;
+  margin-right: 7px;
+  min-width: 70px;
+
+  text-align: center;
+  line-height: normal;
+  color: $fnt-clr-lighter;
+
+  background-repeat: no-repeat;
+  background-position: center top;
+
+  &--fuel {
+    background-image: url('./img/fuel.svg');
+  }
+
+  &--transmisson {
+    background-image: url('./img/transmission.svg');
+  }
+
+  &--power {
+    background-image: url('./img/power.svg');
+  }
+
+  &--capacity {
+    background-image: url('./img/capacity.svg');
+  }
+}
