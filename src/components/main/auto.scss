@@ -1,0 +1,10 @@
+.auto {
+  display: flex;
+}
+
+.auto__column {
+  &--left {
+    width: 600px;
+    margin-right: 55px;
+  }
+}
