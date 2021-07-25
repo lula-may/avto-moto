@@ -1,13 +1,14 @@
 .price {
   display: flex;
   align-items: center;
-  margin-bottom: 37px;
+  margin-bottom: 38px;
+  padding-left: 3px;
 
   line-height: normal;
 }
 
 .price__actual {
-  margin-right: 30px;
+  margin-right: 34px;
 
   font-size: $fnt-size-large;
   font-weight: bold;
@@ -15,6 +16,7 @@
 
 .price__before {
   position: relative;
+  padding-top: 3px;
   color: $fnt-clr-lighter;
   font-size: $fnt-size-tab;
 

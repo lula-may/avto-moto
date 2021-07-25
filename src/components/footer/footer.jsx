@@ -11,13 +11,13 @@ export default function Footer() {
             <a href="#" className="main-footer__link">Корпоративным клиентам</a>
           </li>
           <li className="main-footer__item">
-            <a href="#" className="main-footer__link">Каршеринг</a>
-          </li>
-          <li className="main-footer__item">
             <a href="#" className="main-footer__link">Клиентам</a>
           </li>
           <li className="main-footer__item">
             <a href="#" className="main-footer__link">Аренда авто</a>
+          </li>
+          <li className="main-footer__item">
+            <a href="#" className="main-footer__link">Каршеринг</a>
           </li>
           <li className="main-footer__item">
             <a href="#" className="main-footer__link">Как продать авто</a>

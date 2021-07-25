@@ -10,13 +10,17 @@ button.control {
   color: $fnt-clr-basic;
   border-radius: 50%;
   background-color: transparent;
-  border:1px solid $border-clr;
+  border: 1px solid $border-clr;
 
   &:disabled {
     color: $border-clr;
   }
 
-  &:hover {
+  &:not(:disabled):hover {
+    color: rgba($fnt-clr-basic, 0.7);
+  }
+
+  &:not(:disabled):active {
     color: $border-clr;
   }
 }

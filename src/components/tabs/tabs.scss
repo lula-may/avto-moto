@@ -1,21 +1,24 @@
 .tabs {
-  margin-bottom: 140px;
+  margin-bottom: 139px;
+  padding-left: 5px;
 }
 .tabs__nav {
   display: flex;
 }
 .tabs__button {
   width: 195px;
-  padding-top: 11px;
+  padding-top: 12px;
   padding-bottom: 14px;
 
   color: $fnt-clr-basic;
   text-align: center;
   font-size: $fnt-size-tab;
   line-height: normal;
+  letter-spacing: 0.03em;
 
   border: 1px solid $border-clr;
   background-color: transparent;
+  cursor: pointer;
 
   &--active {
     color: $bg-basic;
@@ -25,5 +28,5 @@
 }
 
 .tabs__content {
-  padding-top: 30px;
+  padding-top: 10px;
 }

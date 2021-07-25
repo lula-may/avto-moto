@@ -5,10 +5,8 @@ import './style.scss';
 import Properties from '../properties/properties';
 import Contacts from '../contacts/contacts';
 import Reviews from '../reviews/reviews';
-import {Tab, TabIdToTitle} from '../const';
-
-const getClassName = (...args) => args.filter(Boolean).join(' ');
-
+import {Tab, TabIdToTitle} from '../../const';
+import {getClassName} from '../../utils';
 function Tabs({features}) {
   const [activeTab, setActiveTab] = useState(Tab.PROPERTIES);
   const tabs = useMemo(() => Object.values(Tab), []);
