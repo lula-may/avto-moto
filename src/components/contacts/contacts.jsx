@@ -1,4 +1,5 @@
 import React from 'react';
+import { Map, Placemark } from 'react-yandex-maps';
 import './style.scss';
 
 export default function Contacts() {
@@ -24,7 +25,18 @@ export default function Contacts() {
             <a href="email:info@avto-moto.ru">info@avto-moto.ru</a>
           </div>
         </div>
-        <div className="contacts__map"></div>
+        <Map className="contacts__map"
+          defaultState={{center: [59.968137, 30.316272], zoom: 15}}
+        >
+          <Placemark
+            defaultGeometry={[59.968137, 30.316272]}
+            options={{
+              iconLayout: 'default#image',
+              iconImageHref: './img/marker.svg',
+              iconImageSize: [32, 40],
+              iconImageOffset: [-16, -40]}}
+          />
+        </Map>
       </div>
     </section>
   );

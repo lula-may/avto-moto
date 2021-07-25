@@ -1,4 +1,5 @@
-import React, {Fragment} from 'react';
+import React from 'react';
+import {YMaps} from 'react-yandex-maps';
 import './style.scss';
 
 import Footer from '../footer/footer';
@@ -13,7 +14,7 @@ const {features, images, info} = auto;
 
 function App() {
   return (
-    <Fragment>
+    <YMaps>
       <Header />
       <main className="page-main">
         <div className="page-main__container">
@@ -30,7 +31,7 @@ function App() {
       </main>
       <Footer />
       <Popup />
-    </Fragment>
+    </YMaps>
   );
 }
 
