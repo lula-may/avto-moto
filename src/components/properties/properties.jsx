@@ -1,17 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 
-export default function Properties() {
+function Properties({features}) {
   return (
     <dl className="properties">
-      <div className="properties__item">
-        <dt>Трансмиссия</dt>
-        <dd>Роботизированная</dd>
-      </div>
-      <div className="properties__item">
-        <dt>Мощность двигателя, л.с.</dt>
-        <dd>249</dd>
-      </div>
+      {features.map(({id, type, value}) => (
+        <div key={id} className="properties__item">
+          <dt>{type}</dt>
+          <dd>{value}</dd>
+        </div>
+      ))}
     </dl>
   );
 }
+
+Properties.propTypes = {
+  features: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  })).isRequired,
+};
+
+export default Properties;

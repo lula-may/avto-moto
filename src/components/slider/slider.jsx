@@ -1,31 +1,58 @@
-import React from 'react';
+import React, {useState, useMemo, useCallback} from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 
-export default function Slider() {
+export default function Slider(props) {
+  const {images} = props;
+  const imagesCount = images.length;
+  const [index, setIndex] = useState(0);
+  const handleBackButtonClick = useCallback((evt) => {
+    evt.preventDefault();
+    setIndex((prev) => prev - 1);
+  }, []);
+
+  const handleForwardButtonClick = useCallback((evt) => {
+    evt.preventDefault();
+    setIndex((prev) => prev + 1);
+  }, []);
+
+  const isBackButtonDisabled = useMemo(() => index === 0, [index]);
+  const isForwardButtonDisabled = useMemo(() => index === imagesCount - 1,[index, imagesCount]);
+  const {srcUrl, altText} = images[index];
+
   return (
     <section className="slider">
       <h2 className="visually-hidden">Фото галерея</h2>
       <div className="slider__image" width="20" height="13">
-        <img src="./img/desktop_slide_1.jpg" alt="Марпех 11 общий вид" srcSet="./img/desktop_slide_1.jpg 2x" />
+        <img src={srcUrl} alt={altText} />
+        <span className="slider__mark">New Model</span>
       </div>
       <div className="slider__gallery">
-        <button className="slider__button control" id="back" aria-label="Назад" disabled>
+        <button
+          className="slider__button control"
+          onClick={handleBackButtonClick}
+          id="back"
+          aria-label="Назад"
+          disabled={isBackButtonDisabled}
+        >
           <svg className="control__icon">
             <use xlinkHref="#arrow-left"></use>
           </svg>
         </button>
         <ul className="slider__list">
-          <li className="slider__preview">
-            <img src="./img/desktop_slide_1.jpg" alt="Марпех 11. Общий вид" />
-          </li>
-          <li className="slider__preview">
-            <img src="./img/desktop_slide_2.jpg" alt="Марпех 11. Салон" />
-          </li>
-          <li className="slider__preview">
-            <img src="./img/desktop_slide_3.jpg" alt="Марпех 11. Спидометр" />
-          </li>
+          {images.map(({id, srcUrl: src, altText: alt}) => (
+            <li key={id} className="slider__preview">
+              <img src={src} alt={alt} />
+            </li>
+          ))}
         </ul>
-        <button className="slider__button control" id="forward">Вперед
+        <button
+          className="slider__button control"
+          onClick={handleForwardButtonClick}
+          id="forward"
+          aria-label="Вперед"
+          disabled={isForwardButtonDisabled}
+        >
           <svg className="slider__icon" width="20" height="13">
             <use xlinkHref="#arrow-right"></use>
           </svg>
@@ -34,3 +61,11 @@ export default function Slider() {
     </section>
   );
 }
+
+Slider.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    srcUrl: PropTypes.string.isRequired,
+    altText: PropTypes.string.isRequired,
+  })).isRequired,
+};

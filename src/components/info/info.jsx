@@ -1,19 +1,30 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './style.scss';
 
-export default function Info() {
+function Info({properties}) {
+  const {
+    capacity,
+    fuel,
+    power,
+    price,
+    priceBefore,
+    transmisson,
+    title,
+  } = properties;
+
   return (
     <section className="about">
-      <h1>Марпех 11</h1>
+      <h1>{title}</h1>
       <ul className="features">
-        <li className="features__item features__item--fuel">бензин</li>
-        <li className="features__item features__item--transmisson">механика</li>
-        <li className="features__item features__item--power">100 л.с.</li>
-        <li className="features__item features__item--capacity">1,4 л</li>
+        <li className="features__item features__item--fuel">{fuel}</li>
+        <li className="features__item features__item--transmisson">{transmisson}</li>
+        <li className="features__item features__item--power">{power}</li>
+        <li className="features__item features__item--capacity">{capacity}</li>
       </ul>
       <div className="about__price price">
-        <span className="price__actual">2 300 000 &#8381;</span>
-        <span className="price__before">2 400 000 &#8381;</span>
+        <span className="price__actual">{price} &#8381;</span>
+        <span className="price__before">{priceBefore} &#8381;</span>
       </div>
       <div className="about__wrapper">
         <a href="#" className="about__link button button--bright" >Оставить заявку</a>
@@ -22,3 +33,17 @@ export default function Info() {
     </section>
   );
 }
+
+Info.propTypes = {
+  properties: PropTypes.shape({
+    capacity: PropTypes.string.isRequired,
+    fuel: PropTypes.string.isRequired,
+    power: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    priceBefore: PropTypes.string.isRequired,
+    transmisson: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+export default Info;
