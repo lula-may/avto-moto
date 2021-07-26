@@ -1,4 +1,6 @@
 .review {
+  padding-top: 20px;
+
   font-size: $fnt-size-text;
   color: $fnt-clr-plain;
   line-height: normal;
@@ -20,7 +22,7 @@
 
   h4 {
     margin: 0;
-    margin-bottom: 3px;
+    margin-bottom: 4px;
     font-weight: 600;
   }
 }
@@ -31,7 +33,7 @@
 }
 
 .review__item {
-  padding-left: 20px;
+  padding-left: 19px;
   margin-bottom: 13px;
 
   h4 {
@@ -40,7 +42,7 @@
     &::before {
       content: '';
       position: absolute;
-      left: -21px;
+      left: -20px;
       right: 0;
       width: 9px;
       height: 21px;
@@ -65,7 +67,7 @@
 .review__rating {
   display: flex;
   padding-top: 20px;
-  margin-bottom: 25px;
+  margin-bottom: 27px;
 }
 
 .review__stars {
@@ -83,6 +85,7 @@
 
 .review__time {
   margin-right: 25px;
+  font-size: $fnt-size-btn;
 
   color: rgba($fnt-clr-plain, 0.4);
 }
