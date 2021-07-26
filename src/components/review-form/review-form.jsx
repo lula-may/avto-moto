@@ -1,4 +1,4 @@
-import React, {Fragment, useCallback, useState} from 'react';
+import React, {Fragment, useCallback, useEffect, useRef} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import './style.scss';
@@ -6,56 +6,55 @@ import {ActionCreator} from '../../store/actions';
 
 const RATINGS = [5, 4, 3, 2, 1];
 
+const getDataFromLocalStorage = () => {
+  const name = localStorage.getItem('userName');
+  const id = Math.round(Math.random() * 1000);
+  const advantage = localStorage.getItem('advantage') ;
+  const disadvantage = localStorage.getItem('disadvantage');
+  const text = localStorage.getItem('text');
+  const rating = localStorage.getItem('rating');
+
+  return {
+    id,
+    user: {
+      id: 0,
+      name,
+    },
+    comment: {
+      advantage,
+      disadvantage,
+      text,
+    },
+    rating: Number(rating),
+  };
+
+};
 function ReviewForm(props) {
+  const nameRef = useRef();
   const {onCloseButtonClick, onCommentSubmit} = props;
-  const [userName, setUserName] = useState('');
-  const [advantage, setAdvantage] = useState('');
-  const [disadvantage, setDisadvantage] = useState('');
-  const [text, setText] = useState('');
-  const [rating, setRating] = useState(0);
 
-  const onUserNameChange = useCallback((evt) => {
-    evt.preventDefault();
-    setUserName(evt.target.value);
+  useEffect(() => {
+    if (nameRef.current !== null) {
+      localStorage.clear();
+      nameRef.current.focus();
+    }
   }, []);
 
-  const onAdvantageChange = useCallback((evt) => {
-    evt.preventDefault();
-    setAdvantage(evt.target.value);
-  }, []);
+  const onUserNameChange = useCallback((evt) => localStorage.setItem('userName',evt.target.value), []);
 
-  const onDisadvantageChange = useCallback((evt) => {
-    evt.preventDefault();
-    setDisadvantage(evt.target.value);
-  }, []);
+  const onAdvantageChange = useCallback((evt) => localStorage.setItem('advantage', evt.target.value), []);
 
-  const onTextChange = useCallback((evt) => {
-    evt.preventDefault();
-    setText(evt.target.value);
-  }, []);
+  const onDisadvantageChange = useCallback((evt) => localStorage.setItem('disadvantage', evt.target.value), []);
 
-  const onRatingChange = useCallback((evt) => {
-    evt.preventDefault();
-    setRating(evt.target.value);
-  }, []);
+  const onTextChange = useCallback((evt) => localStorage.setItem('text', evt.target.value), []);
+
+  const onRatingChange = useCallback((evt) => localStorage.setItem('rating', evt.target.value), []);
 
   const handleSubmit = useCallback((evt) => {
     evt.preventDefault();
-    const newComment = {
-      id: Math.round(Math.random() * 1000),
-      user: {
-        id: 0,
-        name: userName,
-      },
-      comment: {
-        advantage,
-        disadvantage,
-        text,
-      },
-      rating: Number(rating),
-    };
+    const newComment = getDataFromLocalStorage();
     onCommentSubmit(newComment);
-  }, [advantage, disadvantage, text, rating, onCommentSubmit, userName]);
+  }, [onCommentSubmit]);
 
   return (
     <article className="review-form">
@@ -72,11 +71,12 @@ function ReviewForm(props) {
             <p className="review-form__field">
               <label htmlFor="name" className="visually-hidden">Введите ваше имя</label>
               <input
-                type="text"
                 id="name"
                 name="user-name"
-                placeholder="Имя"
                 onChange={onUserNameChange}
+                ref={nameRef}
+                type="text"
+                placeholder="Имя"
                 required
               />
               <span className="review-form__message">Пожалуйста, заполните поле</span>
