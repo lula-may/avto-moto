@@ -6,8 +6,9 @@ import './style.scss';
 import Review from '../review/review';
 import {getComments} from '../../store/selectors';
 import {PROP_COMMENT} from '../../props';
+import { ActionCreator } from '../../store/actions';
 
-function Reviews({comments}) {
+function Reviews({comments, onAddReviewClick}) {
   return (
     <section className="reviews">
       <h2 className="visually-hidden">Отзывы</h2>
@@ -19,17 +20,27 @@ function Reviews({comments}) {
           />
         ))}
       </ul>
-      <button className="reviews__button button button--light" type="button">Оставить отзыв</button>
+      <button
+        className="reviews__button button button--light"
+        onClick={onAddReviewClick}
+        type="button"
+      >Оставить отзыв
+      </button>
     </section>
   );
 }
 
 Reviews.propTypes = {
   comments: PropTypes.arrayOf(PROP_COMMENT).isRequired,
+  onAddReviewClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   comments: getComments(state),
 });
 
-export default connect(mapStateToProps)(Reviews);
+const mapDispatchToProps = (dispatch) => ({
+  onAddReviewClick: () => dispatch(ActionCreator.openPopup()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Reviews);

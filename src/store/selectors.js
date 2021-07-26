@@ -18,4 +18,6 @@ const getAutoFeatures = createSelector(
   (auto) => auto.features,
 );
 
-export {getAutoImages, getAutoInfo, getAutoFeatures, getComments};
+const getPopupStatus = (state) => state.isPopupOpen;
+
+export {getAutoImages, getAutoInfo, getAutoFeatures, getComments, getPopupStatus};

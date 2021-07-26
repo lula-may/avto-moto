@@ -5,6 +5,7 @@ import { comments } from '../data/comments';
 const initialState = {
   currentAuto: auto,
   comments: comments,
+  isPopupOpen: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -13,6 +14,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         comments: [...state.comments, action.payload],
+      };
+    case ActionType.CLOSE_POPUP:
+      return {
+        ...state,
+        isPopupOpen: false,
+      };
+    case ActionType.OPEN_POPUP:
+      return {
+        ...state,
+        isPopupOpen: true,
       };
     default:
       return state;
