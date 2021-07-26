@@ -1,5 +1,6 @@
 const comments = [
   {
+    date: new Date('2021-07-24T12:15'),
     id: 1,
     user: {
       id: 11,
@@ -13,6 +14,7 @@ const comments = [
     rating: 3,
   },
   {
+    date: new Date('2021-07-25T12:15'),
     id: 2,
     user: {
       id: 12,

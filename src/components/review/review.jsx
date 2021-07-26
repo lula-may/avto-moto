@@ -1,14 +1,23 @@
-import React, { useMemo } from 'react';
+import React, {useMemo} from 'react';
 import {PROP_COMMENT} from '../../props';
+import moment from 'moment';
+import 'moment/locale/ru';
+
 import './style.scss';
 
 export default function Review({review}) {
   const {
     comment: {advantage, disadvantage, text},
+    date,
     rating,
     user: {name},
   } = review;
   const ratingStyle = useMemo(() => ({width: `${rating * 20}%`}), [rating]);
+
+  const commentDate = useMemo(() => moment(date), [date]);
+  const dateTime = useMemo(() => commentDate.format('YYYY-MM-DDTHH:mm'), [commentDate]);
+  const dateInterval = commentDate.fromNow();
+
   return (
     <li className="review">
       <h3>{name}</h3>
@@ -31,7 +40,7 @@ export default function Review({review}) {
         <span className="review__label">Советует</span>
       </div>
       <footer className="review__footer">
-        <span className="review__time" dateTime="2021-07-24T12:15">1 минуту назад</span>
+        <span className="review__time" dateTime={dateTime}>{dateInterval}</span>
         <a href="#" className="review__answer">Ответить</a>
       </footer>
     </li>

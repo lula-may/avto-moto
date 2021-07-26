@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 
 const PROP_COMMENT = PropTypes.shape({
+  date: PropTypes.instanceOf(Date),
   id: PropTypes.number.isRequired,
   user: PropTypes.shape({
     id: PropTypes.number,
