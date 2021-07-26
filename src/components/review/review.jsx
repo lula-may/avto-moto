@@ -1,27 +1,32 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import {PROP_COMMENT} from '../../props';
 import './style.scss';
 
-export default function Review() {
+export default function Review({review}) {
+  const {
+    comment: {advantage, disadvantage, text},
+    rating,
+    user: {name},
+  } = review;
+  const ratingStyle = useMemo(() => ({width: `${rating * 20}%`}), [rating]);
   return (
     <li className="review">
-      <h3>Борис Иванов</h3>
+      <h3>{name}</h3>
       <ul className="review_shorts">
         <li className="review__item review__item--plus">
           <h4>Достоинства</h4>
-          <p>мощность, внешний вид</p>
+          <p>{advantage}</p>
         </li>
         <li className="review__item review__item--minus">
           <h4>Недостатки</h4>
-          <p>Слабые тормозные колодки (пришлось заменить)</p>
+          <p>{disadvantage}</p>
         </li>
       </ul>
       <h4>Комментарий</h4>
-      <p>
-            Взяли по трейд-ин, на выгодных условиях у дилера. Стильная внешка и крут по базовым характеристикам. Не думал, что пересяду на китайский автопром, но сейчас гоняю и понимаю, что полностью доволен.
-      </p>
+      <p>{text}</p>
       <div className="review__rating">
         <span className="review__stars stars">
-          <span style={{width: '60%'}}></span>
+          <span style={ratingStyle}></span>
         </span>
         <span className="review__label">Советует</span>
       </div>
@@ -32,3 +37,5 @@ export default function Review() {
     </li>
   );
 }
+
+Review.propTypes = PROP_COMMENT.isRequired;
