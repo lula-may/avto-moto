@@ -21,7 +21,7 @@ export default function Review({review}) {
   return (
     <li className="review">
       <h3>{name}</h3>
-      <ul className="review_shorts">
+      <ul className="review__shorts">
         <li className="review__item review__item--plus">
           <h4>Достоинства</h4>
           <p>{advantage}</p>
@@ -40,7 +40,7 @@ export default function Review({review}) {
         <span className="review__label">Советует</span>
       </div>
       <footer className="review__footer">
-        <span className="review__time" dateTime={dateTime}>{dateInterval}</span>
+        <time className="review__time" dateTime={dateTime}>{dateInterval}</time>
         <a href="#" className="review__answer">Ответить</a>
       </footer>
     </li>

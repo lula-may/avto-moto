@@ -23,7 +23,7 @@ export default function Slider(props) {
   return (
     <section className="slider">
       <h2 className="visually-hidden">Фото галерея</h2>
-      <div className="slider__image" width="20" height="13">
+      <div className="slider__image">
         <img src={srcUrl} alt={altText} />
         <span className="slider__mark">New Model</span>
       </div>

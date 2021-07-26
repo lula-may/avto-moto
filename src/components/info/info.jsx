@@ -28,7 +28,7 @@ function Info({properties}) {
       </div>
       <div className="about__wrapper">
         <a href="#" className="about__link button button--bright" >Оставить заявку</a>
-        <a href="#" className="about__link button button button button--light" type="button">в кредит от 11 000 &#8381;</a>
+        <a href="#" className="about__link button button button button--light">в кредит от 11 000 &#8381;</a>
       </div>
     </section>
   );
