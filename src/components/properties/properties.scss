@@ -13,6 +13,10 @@
   padding-bottom: 8px;
   border-bottom: 1px solid $border-clr;
 
+  dt {
+    width: 70%;
+  }
+
   dd {
     color: $fnt-clr-plain;
   }

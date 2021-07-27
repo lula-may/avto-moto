@@ -11,6 +11,7 @@ button.control {
   border-radius: 50%;
   background-color: transparent;
   border: 1px solid $border-clr;
+  cursor: pointer;
 
   &:disabled {
     color: $border-clr;

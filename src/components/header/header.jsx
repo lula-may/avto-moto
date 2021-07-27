@@ -6,8 +6,8 @@ export default function Header() {
     <header className="header">
       <div className="header__wrapper">
         <div className="header__logo logo">
-          <a href="#" className="logo__link">
-            <img src="./img/logo.png" alt="Логотип Авто-Мото"/>
+          <a className="logo__link">
+            <img src="./img/logo.png" alt="Логотип Авто-Мото" width="134" height="55"/>
           </a>
         </div>
         <nav className="header__nav main-nav">

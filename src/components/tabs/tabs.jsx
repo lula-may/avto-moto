@@ -1,12 +1,15 @@
-import React, {useState, useMemo, useCallback} from 'react';
+import React, {lazy, Suspense, useState, useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
 import Properties from '../properties/properties';
-import Contacts from '../contacts/contacts';
-import Reviews from '../reviews/reviews';
 import {Tab, TabIdToTitle} from '../../const';
 import {getClassName} from '../../utils';
+
+const Contacts = lazy(() => import('../contacts/contacts'));
+const Reviews = lazy(() => import('../reviews/reviews'));
+const renderLoader = () => <p>Loading</p>;
+
 function Tabs({features}) {
   const [activeTab, setActiveTab] = useState(Tab.PROPERTIES);
   const tabs = useMemo(() => Object.values(Tab), []);
@@ -15,9 +18,17 @@ function Tabs({features}) {
   const content = useMemo(() => {
     switch (activeTab) {
       case Tab.REVIEWS:
-        return <Reviews />;
+        return (
+          <Suspense fallback={renderLoader()}>
+            <Reviews />
+          </Suspense>
+        );
       case Tab.CONTACTS:
-        return <Contacts />;
+        return (
+          <Suspense fallback={renderLoader()}>
+            <Contacts />
+          </Suspense>
+        );
       default: return <Properties features={features} />;
     }
   }, [activeTab, features]);

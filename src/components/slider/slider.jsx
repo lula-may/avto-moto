@@ -24,7 +24,7 @@ export default function Slider(props) {
     <section className="slider">
       <h2 className="visually-hidden">Фото галерея</h2>
       <div className="slider__image">
-        <img src={srcUrl} alt={altText} />
+        <img src={srcUrl} width="600" height="375" alt={altText} />
         <span className="slider__mark">New Model</span>
       </div>
       <div className="slider__gallery">
@@ -42,7 +42,7 @@ export default function Slider(props) {
         <ul className="slider__list">
           {images.map(({id, srcUrl: src, altText: alt}) => (
             <li key={id} className="slider__preview">
-              <img src={src} alt={alt} />
+              <img src={src} alt={alt} width="128" height="80" />
             </li>
           ))}
         </ul>

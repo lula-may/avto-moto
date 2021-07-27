@@ -2,6 +2,8 @@
   @include list-reset();
 
   display: flex;
+  flex-wrap: wrap;
+  max-width: 400px;
   margin-bottom: 37px;
   padding-left: 3px;
 }
