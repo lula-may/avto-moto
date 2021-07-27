@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import {YMaps} from 'react-yandex-maps';
+import {BrowserRouter, Route} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './style.scss';
 
@@ -33,24 +34,28 @@ function App(props) {
   ), [handleEscKeyDown, isPopupOpen]);
 
   return (
-    <YMaps>
-      <Header />
-      <main className="page-main">
-        <div className="page-main__container">
-          <article className="auto">
-            <div className="auto__column auto__column--left">
-              <Slider images={images} />
+    <BrowserRouter>
+      <YMaps>
+        <Route path="/">
+          <Header />
+          <main className="page-main">
+            <div className="page-main__container">
+              <article className="auto">
+                <div className="auto__column auto__column--left">
+                  <Slider images={images} />
+                </div>
+                <div className="auto__column auto__column--right">
+                  <Info properties={info} />
+                </div>
+              </article>
+              <Tabs features={features}/>
             </div>
-            <div className="auto__column auto__column--right">
-              <Info properties={info} />
-            </div>
-          </article>
-          <Tabs features={features}/>
-        </div>
-      </main>
-      <Footer />
-      {isPopupOpen && <Popup onPopupClick={closePopup}/>}
-    </YMaps>
+          </main>
+          <Footer />
+          {isPopupOpen && <Popup onPopupClick={closePopup}/>}
+        </Route>
+      </YMaps>
+    </BrowserRouter>
   );
 }
 

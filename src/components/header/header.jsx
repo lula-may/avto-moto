@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import './style.scss';
 
 export default function Header() {
@@ -6,23 +7,23 @@ export default function Header() {
     <header className="header">
       <div className="header__wrapper">
         <div className="header__logo logo">
-          <a className="logo__link">
+          <Link className="logo__link" to="/">
             <img src="./img/logo.png" alt="Логотип Авто-Мото" width="134" height="55"/>
-          </a>
+          </Link>
         </div>
         <nav className="header__nav main-nav">
           <ul className="main-nav__list">
             <li className="main-nav__item">
-              <a href="#" className="main-nav__link">Автомобили</a>
+              <Link className="main-nav__link" to="/">Автомобили</Link>
             </li>
             <li className="main-nav__item">
-              <a href="#" className="main-nav__link">Контакты</a>
+              <Link className="main-nav__link" to="/">Контакты</Link>
             </li>
             <li className="main-nav__item">
-              <a href="#" className="main-nav__link">Услуги </a>
+              <Link className="main-nav__link" to="/">Услуги </Link>
             </li>
             <li className="main-nav__item">
-              <a href="#" className="main-nav__link">Вакансии</a>
+              <Link className="main-nav__link" to="/">Вакансии</Link>
             </li>
           </ul>
         </nav>

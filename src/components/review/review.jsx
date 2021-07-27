@@ -1,4 +1,5 @@
 import React, {useMemo} from 'react';
+import {Link} from 'react-router-dom';
 import {PROP_COMMENT} from '../../props';
 import moment from 'moment';
 import 'moment/locale/ru';
@@ -41,7 +42,7 @@ export default function Review({review}) {
       </div>
       <footer className="review__footer">
         <time className="review__time" dateTime={dateTime}>{dateInterval}</time>
-        <a href="#" className="review__answer">Ответить</a>
+        <Link to="/" className="review__answer">Ответить</Link>
       </footer>
     </li>
   );
