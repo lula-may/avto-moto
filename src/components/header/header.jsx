@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import './style.scss';
 
-export default function Header() {
+function Header() {
   return (
     <header className="header">
       <div className="header__wrapper">
@@ -31,3 +31,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;

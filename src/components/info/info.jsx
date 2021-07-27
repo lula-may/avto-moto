@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './style.scss';
 
@@ -27,8 +28,8 @@ function Info({properties}) {
         <span className="price__before">{priceBefore} &#8381;</span>
       </div>
       <div className="about__wrapper">
-        <a href="#" className="about__link button button--bright" >Оставить заявку</a>
-        <a href="#" className="about__link button button button button--light">в кредит от 11 000 &#8381;</a>
+        <Link to="/" className="about__link button button--bright" >Оставить заявку</Link>
+        <Link to="/" className="about__link button button button button--light">в кредит от 11 000 &#8381;</Link>
       </div>
     </section>
   );

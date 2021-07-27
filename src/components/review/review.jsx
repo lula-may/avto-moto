@@ -6,7 +6,7 @@ import 'moment/locale/ru';
 
 import './style.scss';
 
-export default function Review({review}) {
+function Review({review}) {
   const {
     comment: {advantage, disadvantage, text},
     date,
@@ -49,3 +49,5 @@ export default function Review({review}) {
 }
 
 Review.propTypes = PROP_COMMENT.isRequired;
+
+export default Review;

@@ -2,7 +2,7 @@ import React, {useState, useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
 
-export default function Slider(props) {
+function Slider(props) {
   const {images} = props;
   const imagesCount = images.length;
   const [index, setIndex] = useState(0);
@@ -69,3 +69,5 @@ Slider.propTypes = {
     altText: PropTypes.string.isRequired,
   })).isRequired,
 };
+
+export default Slider;

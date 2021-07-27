@@ -2,7 +2,7 @@ import React from 'react';
 import { Map, Placemark } from 'react-yandex-maps';
 import './style.scss';
 
-export default function Contacts() {
+function Contacts() {
   return (
     <section className="contacts">
       <h2 className="visually-hidden">Контакты</h2>
@@ -22,7 +22,7 @@ export default function Contacts() {
           </div>
           <div className="contacts__item">
             <h3>E-mail</h3>
-            <a href="email:info@avto-moto.ru">info@avto-moto.ru</a>
+            <a href="mailto:info@avto-moto.ru">info@avto-moto.ru</a>
           </div>
         </div>
         <Map className="contacts__map"
@@ -41,3 +41,5 @@ export default function Contacts() {
     </section>
   );
 }
+
+export default Contacts;

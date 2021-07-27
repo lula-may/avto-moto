@@ -1,35 +1,38 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 import './style.scss';
 
-export default function Footer() {
+function Footer() {
   return (
     <footer className="main-footer">
       <div className="main-footer__container">
         <ul className="main-footer__menu">
           <li className="main-footer__item">
-            <a href="#" className="main-footer__link">Корпоративным клиентам</a>
+            <Link to="/" className="main-footer__link">Корпоративным клиентам</Link>
           </li>
           <li className="main-footer__item">
-            <a href="#" className="main-footer__link">Клиентам</a>
+            <Link to="/" className="main-footer__link">Клиентам</Link>
           </li>
           <li className="main-footer__item">
-            <a href="#" className="main-footer__link">Аренда авто</a>
+            <Link to="/" className="main-footer__link">Аренда авто</Link>
           </li>
           <li className="main-footer__item">
-            <a href="#" className="main-footer__link">Каршеринг</a>
+            <Link to="/" className="main-footer__link">Каршеринг</Link>
           </li>
           <li className="main-footer__item">
-            <a href="#" className="main-footer__link">Как продать авто</a>
+            <Link to="/" className="main-footer__link">Как продать авто</Link>
           </li>
           <li className="main-footer__item">
-            <a href="#" className="main-footer__link">Trade-in</a>
+            <Link to="/" className="main-footer__link">Trade-in</Link>
           </li>
           <li className="main-footer__item">
-            <a href="#" className="main-footer__link">Test drive</a>
+            <Link to="/" className="main-footer__link">Test drive</Link>
           </li>
         </ul>
       </div>
     </footer>
   );
 }
+
+export default Footer;
