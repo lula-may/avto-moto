@@ -11,3 +11,9 @@
   top: 19px;
   right: 8px;
 }
+
+@media (max-width: $tablet-width) {
+  .reviews__button {
+    position: static;
+  }
+}

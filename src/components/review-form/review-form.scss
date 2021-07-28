@@ -3,7 +3,7 @@
   top: calc(50% - 207px);
   left: calc(50% - 349px);
   width: 698px;
-  height: 415px;
+  max-width: 100%;
   padding: 35px;
 
   font-size: $fnt-size-btn;
@@ -45,12 +45,14 @@
 
 .review-form__container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 19px;
 }
 
 .review-form__column {
   width: 300px;
+  max-width: 100%;
 }
 
 .review-form__message {
@@ -77,9 +79,10 @@
 
   input:required,
   textarea:required {
-    background-image: url('./img/star.png');
+    background-image: url('./img/star.svg');
     background-repeat: no-repeat;
     background-position: 12px 9px;
+    background-size: 6px 6px;
   }
 
   input:invalid {
@@ -112,4 +115,15 @@
   font-size: $fnt-size-text;
   font-weight: 600;
   color: $fnt-clr-plain;
+}
+
+@media (max-width: 698px) {
+  .review-form {
+    left: 0;
+  }
+  .review-form__container {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
 }

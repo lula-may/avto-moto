@@ -29,6 +29,7 @@
 
 .contacts__container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .contacts__text {
@@ -39,6 +40,7 @@
 .contacts__map {
   width: 431px;
   height: 271px;
+  min-width: 283px;
 
   background-image: url('./img/map.png');
   background-color: $bg-header;

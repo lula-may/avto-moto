@@ -12,6 +12,12 @@ function Reviews({comments, onAddReviewClick}) {
   return (
     <section className="reviews">
       <h2 className="visually-hidden">Отзывы</h2>
+      <button
+        className="reviews__button button button--light"
+        onClick={onAddReviewClick}
+        type="button"
+      >Оставить отзыв
+      </button>
       <ul className="reviews__list">
         {comments.map((comment) => (
           <Review
@@ -20,12 +26,6 @@ function Reviews({comments, onAddReviewClick}) {
           />
         ))}
       </ul>
-      <button
-        className="reviews__button button button--light"
-        onClick={onAddReviewClick}
-        type="button"
-      >Оставить отзыв
-      </button>
     </section>
   );
 }

@@ -5,6 +5,18 @@
 .auto__column {
   &--left {
     width: 600px;
+    max-width: 100%;
     margin-right: 53px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .auto {
+    flex-direction: column;
+  }
+  .auto__column--left {
+    width: 100%;
+    max-width: 725px;
+    margin: 0 auto;
   }
 }

@@ -6,15 +6,11 @@
 .slider__image {
   position: relative;
   display: flex;
-  width: 100%;
-  height: 375px;
   margin-bottom: 40px;
-  overflow: hidden;
 
   img {
-    min-height: 100%;
-    object-fit: cover;
-    flex-shrink: 0;
+  width: 100%;
+  height: auto;
   }
 }
 
@@ -37,6 +33,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .slider__list {
@@ -50,11 +48,26 @@
 
 .slider__preview {
   width: 128px;
+  max-width: 30%;
   height: 80px;
 
   img {
     min-height: 100%;
     object-fit: cover;
     flex-shrink: 0;
+  }
+}
+
+@media (max-width: $desktop-width) {
+  .slider {
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 600px) {
+  .slider {
+    margin-bottom: 20px;
+  }
+  .slider__gallery {
+    display: none;
   }
 }
