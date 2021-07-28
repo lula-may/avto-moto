@@ -120,10 +120,13 @@
 @media (max-width: 698px) {
   .review-form {
     left: 0;
+    top: 0;
+    padding: 15px;
   }
   .review-form__container {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    margin-bottom: 0;
   }
 }
