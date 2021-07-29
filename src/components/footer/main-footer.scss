@@ -15,16 +15,16 @@
   @include list-reset();
 
   margin-left: 8px;
-  margin-right: -15px;
+  margin-right: -66px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .main-footer__item {
   padding-bottom: 30px;
-  padding-right: 15px;
+  margin-right: 63px;
 }
+
 .main-footer__link {
   color: inherit;
   text-decoration: none;
@@ -33,5 +33,12 @@
   }
   &:active {
     opacity: 0.3;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .main-footer__menu {
+    justify-content: center;
+    margin-right: 0;
   }
 }

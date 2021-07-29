@@ -18,11 +18,21 @@
 
 .header__logo {
   margin-left: 7px;
-  margin-right: auto;
+}
+
+.header__nav {
+  max-width: calc(100% - 250px);
+  margin-left: auto;
 }
 
 @media (max-width: $desktop-width) {
   .header {
     margin-bottom: 21px;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .header__wrapper {
+    flex-direction: column;
   }
 }
