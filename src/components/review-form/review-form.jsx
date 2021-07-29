@@ -134,6 +134,7 @@ function ReviewForm(props) {
                 placeholder="Комментарий"
                 required
               />
+              <span className="review-form__message">Пожалуйста, заполните поле</span>
             </p>
           </div>
         </div>

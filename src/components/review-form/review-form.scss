@@ -85,10 +85,13 @@
     background-size: 6px 6px;
   }
 
-  input:invalid {
+  input:invalid,
+  textarea:invalid {
     border: 1px solid $error-clr;
   }
-  input:invalid ~ .review-form__message {
+
+  input:invalid ~ .review-form__message,
+  textarea:invalid ~ .review-form__message {
     display: block;
   }
 
