@@ -10,6 +10,10 @@
     fill: $bg-button;
   }
 
+  input:focus + label {
+    outline: 2px solid black;
+  };
+
   input:checked ~ label .rating__image {
     fill: $bg-button;
   }
