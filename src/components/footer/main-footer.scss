@@ -15,14 +15,16 @@
   @include list-reset();
 
   margin-left: 8px;
-  margin-right: -66px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .main-footer__item {
   padding-bottom: 30px;
-  margin-right: 63px;
+  margin-right: 66px;
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .main-footer__link {
@@ -39,6 +41,10 @@
 @media (max-width: $tablet-width) {
   .main-footer__menu {
     justify-content: center;
-    margin-right: 0;
+  }
+
+  .main-footer__item {
+    padding-bottom: 20px;
+    margin: 0 20px;
   }
 }
