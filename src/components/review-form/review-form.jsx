@@ -1,10 +1,10 @@
-import React, {Fragment, useCallback, useEffect, useRef} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import './style.scss';
+import Rating from '../rating/rating';
 import {ActionCreator} from '../../store/actions';
 
-const RATINGS = [5, 4, 3, 2, 1];
 
 const getDataFromLocalStorage = () => {
   const name = localStorage.getItem('userName');
@@ -29,6 +29,7 @@ const getDataFromLocalStorage = () => {
   };
 
 };
+
 function ReviewForm(props) {
   const nameRef = useRef();
   const {onCloseButtonClick, onCommentSubmit} = props;
@@ -48,7 +49,9 @@ function ReviewForm(props) {
 
   const onTextChange = useCallback((evt) => localStorage.setItem('text', evt.target.value), []);
 
-  const onRatingChange = useCallback((evt) => localStorage.setItem('rating', evt.target.value), []);
+  const onRatingChange = useCallback((value) => {
+    localStorage.setItem('rating', value);
+  }, []);
 
   const handleSubmit = useCallback((evt) => {
     evt.preventDefault();
@@ -105,25 +108,9 @@ function ReviewForm(props) {
           <div className="review-form__column">
             <div className="review-form__rating">
               <span className="review-form__label">Оцените товар:</span>
-              <div className="rating">
-                {RATINGS.map((value) => (
-                  <Fragment key={value}>
-                    <input
-                      className="visually-hidden"
-                      id={`${value}-stars`}
-                      name="rating"
-                      onChange={onRatingChange}
-                      type="radio"
-                      value={value}
-                    />
-                    <label htmlFor={`${value}-stars`}>
-                      <svg className="rating__image" width="27" height="25">
-                        <use xlinkHref="#star"></use>
-                      </svg>
-                    </label>
-                  </Fragment>
-                ))}
-              </div>
+              <Rating
+                onRatingChange={onRatingChange}
+              />
             </div>
             <p className="review-form__field">
               <label htmlFor="comment" className="visually-hidden">Напишите здесь свой комментарий</label>
