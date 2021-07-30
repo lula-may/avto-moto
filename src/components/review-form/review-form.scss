@@ -63,6 +63,18 @@
   color: $error-clr;
 }
 
+.review-form--invalid {
+  input:invalid,
+  textarea:invalid {
+    border: 1px solid $error-clr;
+  }
+
+  input:invalid + .review-form__message,
+  textarea:invalid + .review-form__message {
+    display: block;
+  }
+}
+
 .review-form__field {
   position: relative;
   margin: 0;
@@ -85,16 +97,6 @@
     background-size: 6px 6px;
   }
 
-  input:invalid,
-  textarea:invalid {
-    border: 1px solid $error-clr;
-  }
-
-  input:invalid ~ .review-form__message,
-  textarea:invalid ~ .review-form__message {
-    display: block;
-  }
-
   input {
     height: 50px;
   }
@@ -113,7 +115,7 @@
 }
 
 .review-form__label {
-  margin-right: 14px;
+  margin-right: 11px;
 
   font-size: $fnt-size-text;
   font-weight: 600;

@@ -1,9 +1,10 @@
-import React, {useCallback, useEffect, useRef} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import './style.scss';
 import Rating from '../rating/rating';
 import {ActionCreator} from '../../store/actions';
+import {getClassName} from '../../utils';
 
 
 const getDataFromLocalStorage = () => {
@@ -11,7 +12,7 @@ const getDataFromLocalStorage = () => {
   const id = Math.round(Math.random() * 1000);
   const advantage = localStorage.getItem('advantage') ;
   const disadvantage = localStorage.getItem('disadvantage');
-  const text = localStorage.getItem('text');
+  const text = localStorage.getItem('comment');
   const rating = localStorage.getItem('rating');
 
   return {
@@ -31,8 +32,9 @@ const getDataFromLocalStorage = () => {
 };
 
 function ReviewForm(props) {
-  const nameRef = useRef();
   const {onCloseButtonClick, onCommentSubmit} = props;
+  const nameRef = useRef();
+  const [isInvalid, setIsInvalid] = useState(false);
 
   useEffect(() => {
     if (nameRef.current !== null) {
@@ -41,16 +43,9 @@ function ReviewForm(props) {
     }
   }, []);
 
-  const onUserNameChange = useCallback((evt) => localStorage.setItem('userName',evt.target.value), []);
-
-  const onAdvantageChange = useCallback((evt) => localStorage.setItem('advantage', evt.target.value), []);
-
-  const onDisadvantageChange = useCallback((evt) => localStorage.setItem('disadvantage', evt.target.value), []);
-
-  const onTextChange = useCallback((evt) => localStorage.setItem('text', evt.target.value), []);
-
-  const onRatingChange = useCallback((value) => {
-    localStorage.setItem('rating', value);
+  const onChange = useCallback((evt) => {
+    const {name, value} = evt.target;
+    localStorage.setItem(name, value);
   }, []);
 
   const handleSubmit = useCallback((evt) => {
@@ -59,8 +54,10 @@ function ReviewForm(props) {
     onCommentSubmit(newComment);
   }, [onCommentSubmit]);
 
+  const handleInvalid = useCallback(() => setIsInvalid(true), []);
+
   return (
-    <article className="review-form">
+    <article className={getClassName('review-form', isInvalid && 'review-form--invalid')}>
       <h1 className="review-form__header">Оставить отзыв</h1>
       <button
         className="review-form__close"
@@ -68,15 +65,21 @@ function ReviewForm(props) {
         type="button"
       >Закрыть
       </button>
-      <form action="#" method="post" id="review-form" onSubmit={handleSubmit}>
+      <form
+        action="#"
+        method="post"
+        id="review-form"
+        onInvalid={handleInvalid}
+        onSubmit={handleSubmit}
+      >
         <div className="review-form__container">
           <div className="review-form__column">
             <p className="review-form__field">
               <label htmlFor="name" className="visually-hidden">Введите ваше имя</label>
               <input
-                id="name"
-                name="user-name"
-                onChange={onUserNameChange}
+                id="userName"
+                name="userName"
+                onChange={onChange}
                 ref={nameRef}
                 type="text"
                 placeholder="Имя"
@@ -85,22 +88,22 @@ function ReviewForm(props) {
               <span className="review-form__message">Пожалуйста, заполните поле</span>
             </p>
             <p className="review-form__field">
-              <label htmlFor="advantages" className="visually-hidden">Достоинства</label>
+              <label htmlFor="advantage" className="visually-hidden">Достоинства</label>
               <input
                 type="text"
-                id="advantages"
-                name="advantages"
-                onChange={onAdvantageChange}
+                id="advantage"
+                name="advantage"
+                onChange={onChange}
                 placeholder="Достоинства"
               />
             </p>
             <p className="review-form__field">
-              <label htmlFor="disadvantages" className="visually-hidden">Недостатки</label>
+              <label htmlFor="disadvantage" className="visually-hidden">Недостатки</label>
               <input
                 type="text"
-                id="disadvantages"
-                name="disadvantages"
-                onChange={onDisadvantageChange}
+                id="disadvantage"
+                name="disadvantage"
+                onChange={onChange}
                 placeholder="Недостатки"
               />
             </p>
@@ -109,7 +112,7 @@ function ReviewForm(props) {
             <div className="review-form__rating">
               <span className="review-form__label">Оцените товар:</span>
               <Rating
-                onRatingChange={onRatingChange}
+                onRatingChange={onChange}
               />
             </div>
             <p className="review-form__field">
@@ -117,7 +120,7 @@ function ReviewForm(props) {
               <textarea
                 id="comment"
                 name="comment"
-                onChange={onTextChange}
+                onChange={onChange}
                 placeholder="Комментарий"
                 required
               />
