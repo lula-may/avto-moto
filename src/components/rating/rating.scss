@@ -2,7 +2,7 @@
   display: flex;
 
   label {
-    padding-right: 6px;
+    padding: 0 3px;
   }
 
   .rating__image {
@@ -13,12 +13,16 @@
     }
   }
 
+  input:focus + label {
+    outline: 1px solid $fnt-clr-plain;
+  }
+
   &:hover {
     .rating__image {
       fill: $bg-button;
     }
 
-    input:hover ~ label .rating__image {
+    input:hover ~ input + label .rating__image {
     fill: $bg-star;
     }
   }

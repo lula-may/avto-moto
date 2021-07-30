@@ -10,30 +10,16 @@ function Rating({onRatingChange}) {
 
   const onChange = useCallback((evt) => {
     const value = evt.target.value;
-    onRatingChange(value);
+    onRatingChange(evt);
     setCurrentRating(value);
   }, [onRatingChange]);
 
   return (
     <div className="rating">
-      <input
-        className="visually-hidden"
-        id="0-stars"
-        name="rating"
-        type="radio"
-        value="0"
-        onChange={onChange}
-        checked={currentRating === '0'}
-      />
       {RATINGS.map((value) => {
         const isActive = Number(currentRating) >= Number(value);
         return (
           <Fragment key={value}>
-            <label htmlFor={`${value}-stars`}>
-              <svg className={getClassName('rating__image', isActive && 'rating__image--active')} width="27" height="25">
-                <use xlinkHref="#star"></use>
-              </svg>
-            </label>
             <input
               className="visually-hidden"
               id={`${value}-stars`}
@@ -43,6 +29,11 @@ function Rating({onRatingChange}) {
               value={value}
               checked={currentRating === value}
             />
+            <label htmlFor={`${value}-stars`}>
+              <svg className={getClassName('rating__image', isActive && 'rating__image--active')} width="27" height="25">
+                <use xlinkHref="#star"></use>
+              </svg>
+            </label>
           </Fragment>
         );
       })}
